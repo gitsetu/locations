@@ -1,0 +1,20 @@
+{{> menu}}
+
+<form class="box"  action="/track/{{playlist._id}}/updatetrack/{{track._id}}" method="POST">
+  <label>Update Track Details:</label>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <input class="input" type="text" name="title", value="{{track.title}}">
+      </div>
+      <div class="field">
+        <input class="input" type="text" name="artist" value="{{track.artist}}">
+      </div>
+      <div class="field">
+        <input class="input" type="text"  name="duration" value="{{track.duration}}">
+      </div>
+    </div>
+  </div>
+  <button class="button is-primary">Update Track</button>
+</form>
+

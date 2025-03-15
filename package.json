@@ -1,0 +1,58 @@
+{
+  "name": "playtime",
+  "version": "0.10.2",
+  "description": "A Playlist application for the HDip in Computing, WIT",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "./node_modules/.bin/nodemon src/server.js --ignore 'src/models/json/*.json'",
+    "lint": "./node_modules/.bin/eslint . --ext .js",
+    "test": "./node_modules/mocha/bin/_mocha --ui tdd test/**/*.js -exit -t 10000",
+    "testmodels": "./node_modules/mocha/bin/_mocha --ui tdd test/models/**/*.js -exit",
+    "testapi": "./node_modules/mocha/bin/_mocha --ui tdd test/api/**/*.js -exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wit-hdip-comp-sci-2021/playtime.git"
+  },
+  "keywords": [
+    "node",
+    "hapi"
+  ],
+  "author": "edeleastar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wit-hdip-comp-sci-2021/playtime/issues"
+  },
+  "homepage": "https://github.com/wit-hdip-comp-sci-2021/playtime#readme",
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@hapi/cookie": "^12.0.1",
+    "@hapi/hapi": "^21.3.12",
+    "@hapi/inert": "^7.1.0",
+    "@hapi/vision": "^7.0.3",
+    "cloudinary": "^2.5.1",
+    "dotenv": "^16.4.7",
+    "handlebars": "^4.7.8",
+    "hapi-auth-jwt2": "^11.0.0",
+    "hapi-swagger": "^17.3.2",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "lowdb": "^7.0.1",
+    "mais-mongoose-seeder": "^1.0.7",
+    "mongoose": "^8.10.1",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "axios": "^1.7.9",
+    "chai": "^5.2.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-import": "^2.31.0",
+    "mocha": "^11.1.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.1"
+  }
+}
