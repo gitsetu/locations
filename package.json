@@ -1,20 +1,20 @@
 {
   "name": "locations",
-  "version": "0.10.2",
+  "version": "0.1.0",
   "description": "An application to manage lists of locations for the HDip in Computing, WIT",
   "main": "src/server.js",
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "./node_modules/.bin/nodemon src/server.js --ignore 'src/models/json/*.json'",
-    "lint": "./node_modules/.bin/eslint . --ext .js",
+    "dev": "nodemon src/server.js --ignore 'src/models/json/*.json'",
+    "lint": "eslint . --ext .js",
     "test": "./node_modules/mocha/bin/_mocha --ui tdd test/**/*.js -exit -t 10000",
     "testmodels": "./node_modules/mocha/bin/_mocha --ui tdd test/models/**/*.js -exit",
     "testapi": "./node_modules/mocha/bin/_mocha --ui tdd test/api/**/*.js -exit"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gitsetu/playtime10.git"
+    "url": "git+https://github.com/gitsetu/playtime10.git"
   },
   "keywords": [
     "node",
@@ -54,5 +54,8 @@
     "mocha": "^11.1.0",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.3"
+  },
+  "directories": {
+    "test": "test"
   }
 }
