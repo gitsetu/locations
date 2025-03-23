@@ -1,6 +1,6 @@
 {
   "name": "locations",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An application to manage lists of locations for the HDip in Computing, WIT",
   "main": "src/server.js",
   "type": "module",

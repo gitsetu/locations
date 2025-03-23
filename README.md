@@ -26,21 +26,23 @@ Delete locations, and delete locations list.
 Basic functionality:  
 Enter, update, and delete data through a web interface.
 
+### Added
+When a list gets deleted, all the locations it contains are also deleted.
+
 ### Data Stores
 Memory  
-JSON file
+JSON file  
 Mongo database
 
 ### Media
-An image for each list of locations can be added, uploading to Cloudinary service
+An image for each list of locations can be added, 
+image uploads to Cloudinary service
 
 ### Other
 Cookies.  
 JSON Web Tokens used for authentication.  
-Seeding of data.
+Seeding of data (disabled for deployment)
 
-### TODO
-When a list gets deleted, its locations must get deleted.
 
 ### Screenshots
 ![](screenshots/0.2.0 Screenshot 2025-03-23 at 12.42.23.png)
