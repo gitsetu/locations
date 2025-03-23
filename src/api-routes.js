@@ -1,6 +1,6 @@
 import { userApi } from "./api/user-api.js";
-import { playlistApi } from "./api/playlist-api.js";
-import { trackApi } from "./api/track-api.js";
+import { placelistApi } from "./api/placelist-api.js";
+import { locationApi } from "./api/location-api.js";
 
 export const apiRoutes = [
   { method: "GET", path: "/api/users", config: userApi.find },
@@ -10,15 +10,15 @@ export const apiRoutes = [
 
   { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
 
-  { method: "POST", path: "/api/playlists", config: playlistApi.create },
-  { method: "DELETE", path: "/api/playlists", config: playlistApi.deleteAll },
-  { method: "GET", path: "/api/playlists", config: playlistApi.find },
-  { method: "GET", path: "/api/playlists/{id}", config: playlistApi.findOne },
-  { method: "DELETE", path: "/api/playlists/{id}", config: playlistApi.deleteOne },
+  { method: "POST", path: "/api/placelists", config: placelistApi.create },
+  { method: "DELETE", path: "/api/placelists", config: placelistApi.deleteAll },
+  { method: "GET", path: "/api/placelists", config: placelistApi.find },
+  { method: "GET", path: "/api/placelists/{id}", config: placelistApi.findOne },
+  { method: "DELETE", path: "/api/placelists/{id}", config: placelistApi.deleteOne },
 
-  { method: "GET", path: "/api/tracks", config: trackApi.find },
-  { method: "GET", path: "/api/tracks/{id}", config: trackApi.findOne },
-  { method: "POST", path: "/api/playlists/{id}/tracks", config: trackApi.create },
-  { method: "DELETE", path: "/api/tracks", config: trackApi.deleteAll },
-  { method: "DELETE", path: "/api/tracks/{id}", config: trackApi.deleteOne },
+  { method: "GET", path: "/api/locations", config: locationApi.find },
+  { method: "GET", path: "/api/locations/{id}", config: locationApi.findOne },
+  { method: "POST", path: "/api/placelists/{id}/locations", config: locationApi.create },
+  { method: "DELETE", path: "/api/locations", config: locationApi.deleteAll },
+  { method: "DELETE", path: "/api/locations/{id}", config: locationApi.deleteOne },
 ];

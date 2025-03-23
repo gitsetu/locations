@@ -1,0 +1,20 @@
+{{> menu}}
+
+<form class="box"  action="/location/{{placelist._id}}/updatelocation/{{location._id}}" method="POST">
+  <label>Update location Details:</label>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <input class="input" type="text" name="locationname", value="{{location.locationname}}">
+      </div>
+      <div class="field">
+        <input class="input" type="text" name="latitude" value="{{location.latitude}}">
+      </div>
+      <div class="field">
+        <input class="input" type="text"  name="longitude" value="{{location.longitude}}">
+      </div>
+    </div>
+  </div>
+  <button class="button is-primary">Update location</button>
+</form>
+

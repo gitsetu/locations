@@ -1,70 +1,70 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
-import { playtimeService } from "./playtime-service.js";
-import { maggie, mozart, maggieCredentials, testPlaylists, testTracks, concerto } from "../fixtures.js";
+import { appService } from "./playtime-service.js";
+import { maggie, mozart, maggieCredentials, testplacelists, testlocations, concerto } from "../fixtures.js";
 
-suite("Track API tests", () => {
+suite("location API tests", () => {
   let user = null;
   let beethovenSonatas = null;
 
   setup(async () => {
-    playtimeService.clearAuth();
-    user = await playtimeService.createUser(maggie);
-    await playtimeService.authenticate(maggieCredentials);
-    await playtimeService.deleteAllPlaylists();
-    await playtimeService.deleteAllTracks();
-    await playtimeService.deleteAllUsers();
-    user = await playtimeService.createUser(maggie);
-    await playtimeService.authenticate(maggieCredentials);
+    appService.clearAuth();
+    user = await appService.createUser(maggie);
+    await appService.authenticate(maggieCredentials);
+    await appService.deleteAllplacelists();
+    await appService.deleteAlllocations();
+    await appService.deleteAllUsers();
+    user = await appService.createUser(maggie);
+    await appService.authenticate(maggieCredentials);
     mozart.userid = user._id;
-    beethovenSonatas = await playtimeService.createPlaylist(mozart);
+    beethovenSonatas = await appService.createplacelist(mozart);
   });
 
   teardown(async () => {});
 
-  test("create track", async () => {
-    const returnedTrack = await playtimeService.createTrack(beethovenSonatas._id, concerto);
-    assertSubset(concerto, returnedTrack);
+  test("create location", async () => {
+    const returnedlocation = await appService.createlocation(beethovenSonatas._id, concerto);
+    assertSubset(concerto, returnedlocation);
   });
 
-  test("create Multiple tracks", async () => {
-    for (let i = 0; i < testTracks.length; i += 1) {
+  test("create Multiple locations", async () => {
+    for (let i = 0; i < testlocations.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await playtimeService.createTrack(beethovenSonatas._id, testTracks[i]);
+      await appService.createlocation(beethovenSonatas._id, testlocations[i]);
     }
-    const returnedTracks = await playtimeService.getAllTracks();
-    assert.equal(returnedTracks.length, testTracks.length);
-    for (let i = 0; i < returnedTracks.length; i += 1) {
+    const returnedlocations = await appService.getAlllocations();
+    assert.equal(returnedlocations.length, testlocations.length);
+    for (let i = 0; i < returnedlocations.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      const track = await playtimeService.getTrack(returnedTracks[i]._id);
-      assertSubset(track, returnedTracks[i]);
+      const location = await appService.getlocation(returnedlocations[i]._id);
+      assertSubset(location, returnedlocations[i]);
     }
   });
 
-  test("Delete TrackApi", async () => {
-    for (let i = 0; i < testTracks.length; i += 1) {
+  test("Delete locationApi", async () => {
+    for (let i = 0; i < testlocations.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await playtimeService.createTrack(beethovenSonatas._id, testTracks[i]);
+      await appService.createlocation(beethovenSonatas._id, testlocations[i]);
     }
-    let returnedTracks = await playtimeService.getAllTracks();
-    assert.equal(returnedTracks.length, testTracks.length);
-    for (let i = 0; i < returnedTracks.length; i += 1) {
+    let returnedlocations = await appService.getAlllocations();
+    assert.equal(returnedlocations.length, testlocations.length);
+    for (let i = 0; i < returnedlocations.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      const track = await playtimeService.deleteTrack(returnedTracks[i]._id);
+      const location = await appService.deletelocation(returnedlocations[i]._id);
     }
-    returnedTracks = await playtimeService.getAllTracks();
-    assert.equal(returnedTracks.length, 0);
+    returnedlocations = await appService.getAlllocations();
+    assert.equal(returnedlocations.length, 0);
   });
 
-  test("denormalised playlist", async () => {
-    for (let i = 0; i < testTracks.length; i += 1) {
+  test("denormalised placelist", async () => {
+    for (let i = 0; i < testlocations.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await playtimeService.createTrack(beethovenSonatas._id, testTracks[i]);
+      await appService.createlocation(beethovenSonatas._id, testlocations[i]);
     }
-    const returnedPlaylist = await playtimeService.getPlaylist(beethovenSonatas._id);
-    assert.equal(returnedPlaylist.tracks.length, testTracks.length);
-    for (let i = 0; i < testTracks.length; i += 1) {
-      assertSubset(testTracks[i], returnedPlaylist.tracks[i]);
+    const returnedplacelist = await appService.getplacelist(beethovenSonatas._id);
+    assert.equal(returnedplacelist.locations.length, testlocations.length);
+    for (let i = 0; i < testlocations.length; i += 1) {
+      assertSubset(testlocations[i], returnedplacelist.locations[i]);
     }
   });
 });

@@ -1,11 +1,11 @@
 <div class="card">
   <div class="card-image">
     <figure class="image is-256x256">
-      <img src={{playlist.img}}>
+      <img src={{placelist.img}}>
     </figure>
   </div>
   <div class="card-content">
-    <form action="/playlist/{{playlist._id}}/uploadimage" method="POST" enctype="multipart/form-data">
+    <form action="/placelist/{{placelist._id}}/uploadimage" method="POST" enctype="multipart/form-data">
       <div id="file-select" class="file has-name is-fullwidth">
         <label class="file-label"> <input class="file-input" name="imagefile" type="file" name="resume"
             accept="image/png, image/jpeg">

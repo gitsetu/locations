@@ -1,7 +1,7 @@
 import axios from "axios";
 import { maggie, serviceUrl } from "../fixtures.js";
 
-export const playtimeService = {
+export const appService = {
   playtimeUrl: serviceUrl,
 
   async createUser(user) {
@@ -28,53 +28,53 @@ export const playtimeService = {
     return res.data;
   },
 
-  async createPlaylist(playlist) {
-    const res = await axios.post(`${this.playtimeUrl}/api/playlists`, playlist);
+  async createplacelist(placelist) {
+    const res = await axios.post(`${this.playtimeUrl}/api/placelists`, placelist);
     return res.data;
   },
 
-  async deleteAllPlaylists() {
-    const response = await axios.delete(`${this.playtimeUrl}/api/playlists`);
+  async deleteAllplacelists() {
+    const response = await axios.delete(`${this.playtimeUrl}/api/placelists`);
     return response.data;
   },
 
-  async deletePlaylist(id) {
-    const response = await axios.delete(`${this.playtimeUrl}/api/playlists/${id}`);
+  async deleteplacelist(id) {
+    const response = await axios.delete(`${this.playtimeUrl}/api/placelists/${id}`);
     return response;
   },
 
-  async getAllPlaylists() {
-    const res = await axios.get(`${this.playtimeUrl}/api/playlists`);
+  async getAllplacelists() {
+    const res = await axios.get(`${this.playtimeUrl}/api/placelists`);
     return res.data;
   },
 
-  async getPlaylist(id) {
-    const res = await axios.get(`${this.playtimeUrl}/api/playlists/${id}`);
+  async getplacelist(id) {
+    const res = await axios.get(`${this.playtimeUrl}/api/placelists/${id}`);
     return res.data;
   },
 
-  async getAllTracks() {
-    const res = await axios.get(`${this.playtimeUrl}/api/tracks`);
+  async getAlllocations() {
+    const res = await axios.get(`${this.playtimeUrl}/api/locations`);
     return res.data;
   },
 
-  async createTrack(id, track) {
-    const res = await axios.post(`${this.playtimeUrl}/api/playlists/${id}/tracks`, track);
+  async createlocation(id, location) {
+    const res = await axios.post(`${this.playtimeUrl}/api/placelists/${id}/locations`, location);
     return res.data;
   },
 
-  async deleteAllTracks() {
-    const res = await axios.delete(`${this.playtimeUrl}/api/tracks`);
+  async deleteAlllocations() {
+    const res = await axios.delete(`${this.playtimeUrl}/api/locations`);
     return res.data;
   },
 
-  async getTrack(id) {
-    const res = await axios.get(`${this.playtimeUrl}/api/tracks/${id}`);
+  async getlocation(id) {
+    const res = await axios.get(`${this.playtimeUrl}/api/locations/${id}`);
     return res.data;
   },
 
-  async deleteTrack(id) {
-    const res = await axios.delete(`${this.playtimeUrl}/api/tracks/${id}`);
+  async deletelocation(id) {
+    const res = await axios.delete(`${this.playtimeUrl}/api/locations/${id}`);
     return res.data;
   },
 

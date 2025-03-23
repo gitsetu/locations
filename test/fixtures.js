@@ -34,45 +34,45 @@ export const testUsers = [
 ];
 
 export const mozart = {
-  title: "Mozart Favourites",
+  placelistname: "Mozart Favourites",
 };
 
 export const concerto = {
-  title: "Violin Concerto No. 3",
-  artist: "Mozart",
-  duration: 15,
+  placename: "Violin Concerto No. 3",
+  latitude: "Mozart",
+  longitude: 15,
 };
 
 export const beethoven = {
   title: "Mozart Favourites",
 };
 
-export const testPlaylists = [
+export const testplacelists = [
   {
-    title: "Beethoven Sonatas",
+    placelistname: "Beethoven Sonatas",
   },
   {
-    title: "Beethoven Concertos",
+    placelistname: "Beethoven Concertos",
   },
   {
-    title: "Beethoven Symphonies",
+    placelistname: "Beethoven Symphonies",
   },
 ];
 
-export const testTracks = [
+export const testlocations = [
   {
-    title: "Piano Sonata No. 3",
-    artist: "Beethoven",
-    duration: 5,
+    placename: "Piano Sonata No. 3",
+    latitude: "Beethoven",
+    longitude: 5,
   },
   {
-    title: "Piano Sonata No. 7",
-    artist: "Beethoven",
-    duration: 6,
+    placename: "Piano Sonata No. 7",
+    latitude: "Beethoven",
+    longitude: 6,
   },
   {
-    title: "Piano Sonata No. 10",
-    artist: "Beethoven",
-    duration: 4,
+    placename: "Piano Sonata No. 10",
+    latitude: "Beethoven",
+    longitude: 4,
   },
 ];

@@ -21,36 +21,36 @@ export const UserSpecPlus = UserSpec.keys({
 
 export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 
-export const TrackSpec = Joi.object()
+export const locationSpec = Joi.object()
   .keys({
-    title: Joi.string().required().example("Piano Sonata No. 7"),
-    artist: Joi.string().required().example("Beethoven"),
-    duration: Joi.number().allow("").optional().example(12),
-    playlistid: IdSpec,
+    locationname: Joi.string().required().example("Piano Sonata No. 7"),
+    latitude: Joi.string().required().example("Beethoven"),
+    longitude: Joi.number().allow("").optional().example(12),
+    placelistid: IdSpec,
   })
-  .label("Track");
+  .label("location");
 
-export const TrackSpecPlus = TrackSpec.keys({
+export const locationSpecPlus = locationSpec.keys({
   _id: IdSpec,
   __v: Joi.number(),
-}).label("TrackPlus");
+}).label("locationPlus");
 
-export const TrackArraySpec = Joi.array().items(TrackSpecPlus).label("TrackArray");
+export const locationArraySpec = Joi.array().items(locationSpecPlus).label("locationArray");
 
-export const PlaylistSpec = Joi.object()
+export const placelistSpec = Joi.object()
   .keys({
-    title: Joi.string().required().example("Beethoven Sonatas"),
+    placelistname: Joi.string().required().example("Beethoven Sonatas"),
     userid: IdSpec,
-    tracks: TrackArraySpec,
+    locations: locationArraySpec,
   })
-  .label("Playlist");
+  .label("placelist");
 
-export const PlaylistSpecPlus = PlaylistSpec.keys({
+export const placelistSpecPlus = placelistSpec.keys({
   _id: IdSpec,
   __v: Joi.number(),
-}).label("PlaylistPlus");
+}).label("placelistPlus");
 
-export const PlaylistArraySpec = Joi.array().items(PlaylistSpecPlus).label("PlaylistArray");
+export const placelistArraySpec = Joi.array().items(placelistSpecPlus).label("placelistArray");
 
 export const JwtAuth = Joi.object()
   .keys({

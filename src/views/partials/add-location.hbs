@@ -1,0 +1,17 @@
+<form class="box" action="/placelist/{{placelist._id}}/addlocation" method="POST">
+  <label>Enter location Details:</label>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <input class="input" type="text" placeholder="Enter location name" name="locationname">
+      </div>
+      <div class="field">
+        <input class="input" type="text" placeholder="Enter latitude" name="latitude">
+      </div>
+      <div class="field">
+        <input class="input" type="text" placeholder="Enter longitude" name="longitude">
+      </div>
+    </div>
+  </div>
+  <button class="button is-primary">Add location</button>
+</form>

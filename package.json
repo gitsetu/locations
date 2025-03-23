@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gitsetu/playtime10.git"
+    "url": "git+https://github.com/gitsetu/locations.git"
   },
   "keywords": [
     "node",
@@ -23,9 +23,9 @@
   "author": "gitsetu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gitsetu/playtime10.git/issues"
+    "url": "https://github.com/gitsetu/locations.git/issues"
   },
-  "homepage": "https://github.com/gitsetu/playtime10#readme",
+  "homepage": "https://github.com/gitsetu/locations#readme",
   "dependencies": {
     "@hapi/boom": "^10.0.1",
     "@hapi/cookie": "^12.0.1",

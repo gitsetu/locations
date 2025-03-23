@@ -1,4 +1,4 @@
-# Playtime Changelog
+# App Changelog
 
 ## version 0.10.2
 
@@ -17,7 +17,7 @@
 
 ## version 0.9.0
 
-- complete user, playlist and track schemas
+- complete user, placelist and location schemas
 - incorporate jwt components into project
 - include authenticate route
 - secure the api routes via jwt token
@@ -31,7 +31,7 @@
 
 ## version 0.7.0
 
-- introduce Playlist test interface
+- introduce Placelist test interface
 - refactor tests to use skeleton
 - incorporate nodemon to launch dev server
 
@@ -44,9 +44,9 @@
 
 ## version 0.5.0
 
-- develop mongo stores for user, playlist and track
+- develop mongo stores for user, placelist and location
 - install mongoose component
-- introduce playlist store tests
+- introduce placelist store tests
 - complete user mem store (fixing test failures)
 
 ## version 0.4.0
@@ -58,7 +58,7 @@
 
 ## version 0.3.0
 
-- support delete playlist + tracks
+- support delete placelist + locations
 - introduce .env for secrets
 - include Joi schema validation for signup form
 - incorporate JSON data stores
@@ -66,11 +66,11 @@
 ## version 0.2.0
 
 - about controller + view added
-- introduce track model
-- playlist controller + view & partials added
-- support adding trackApi to playlists
+- introduce location model
+- placelist controller + view & partials added
+- support adding locationApi to placelists
 - introduce sessions
-- associate playlists with userApi
+- associate placelists with userApi
 
 ## version 0.1.0
 
@@ -86,6 +86,6 @@
 - add eslint + prettier config
 -
 - vision and inert hapi components
-- simple in-memory playlist and user models
+- simple in-memory placelist and user models
 - account controller + views & partials
-- playlist controller + views & partials
+- placelist controller + views & partials

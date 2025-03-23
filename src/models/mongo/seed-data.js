@@ -20,32 +20,32 @@ export const seedData = {
       password: "secret"
     }
   },
-  playlists: {
-    _model: "Playlist",
+  placelists: {
+    _model: "placelist",
     mozart: {
-      title: "Mozart Favourites",
+      placelistname: "Mozart Favourites",
       userid: "->users.bart"
     }
   },
-  tracks: {
-    _model : "Track",
-    track_1 : {
-      title: "Violin Concerto No. 1",
-      artist: "Mozart",
-      duration: 15,
-      playlistid: "->playlists.mozart"
+  locations: {
+    _model : "location",
+    location_1 : {
+      locationname: "Violin Concerto No. 1",
+      latitude: 123,
+      longitude: 15,
+      placelistid: "->placelists.mozart"
     },
-    track_2 : {
-      title: "Violin Concerto No. 2",
-      artist: "Mozart",
-      duration: 11,
-      playlistid: "->playlists.mozart"
+    location_2 : {
+      locationname: "Violin Concerto No. 2",
+      latitude: 234,
+      longitude: 11,
+      placelistid: "->placelists.mozart"
     },
-    track_3 : {
-      title: "Violin Concerto No. 3",
-      artist: "Mozart",
-      duration: 23,
-      playlistid: "->playlists.mozart"
+    location_3 : {
+      locationname: "Violin Concerto No. 3",
+      latitude: 567,
+      longitude: 23,
+      placelistid: "->placelists.mozart"
     }
   }
 };

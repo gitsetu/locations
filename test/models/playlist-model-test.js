@@ -1,56 +1,56 @@
 import { assert } from "chai";
 import { db } from "../../src/models/db.js";
-import { testPlaylists, mozart } from "../fixtures.js";
+import { testplacelists, mozart } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 
-suite("Playlist Model tests", () => {
+suite("Placelist Model tests", () => {
 
   setup(async () => {
     db.init("mongo");
-    await db.playlistStore.deleteAllPlaylists();
-    for (let i = 0; i < testPlaylists.length; i += 1) {
+    await db.placelistStore.deleteAllplacelists();
+    for (let i = 0; i < testplacelists.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      testPlaylists[i] = await db.playlistStore.addPlaylist(testPlaylists[i]);
+      testplacelists[i] = await db.placelistStore.addplacelist(testplacelists[i]);
     }
   });
 
-  test("create a playlist", async () => {
-    const playlist = await db.playlistStore.addPlaylist(mozart);
-    assertSubset(mozart, playlist);
-    assert.isDefined(playlist._id);
+  test("create a placelist", async () => {
+    const placelist = await db.placelistStore.addplacelist(mozart);
+    assertSubset(mozart, placelist);
+    assert.isDefined(placelist._id);
   });
 
-  test("delete all playlists", async () => {
-    let returnedPlaylists = await db.playlistStore.getAllPlaylists();
-    assert.equal(returnedPlaylists.length, 3);
-    await db.playlistStore.deleteAllPlaylists();
-    returnedPlaylists = await db.playlistStore.getAllPlaylists();
-    assert.equal(returnedPlaylists.length, 0);
+  test("delete all placelists", async () => {
+    let returnedplacelists = await db.placelistStore.getAllplacelists();
+    assert.equal(returnedplacelists.length, 3);
+    await db.placelistStore.deleteAllplacelists();
+    returnedplacelists = await db.placelistStore.getAllplacelists();
+    assert.equal(returnedplacelists.length, 0);
   });
 
-  test("get a playlist - success", async () => {
-    const playlist = await db.playlistStore.addPlaylist(mozart);
-    const returnedPlaylist = await db.playlistStore.getPlaylistById(playlist._id);
-    assertSubset(mozart, playlist);
+  test("get a placelist - success", async () => {
+    const placelist = await db.placelistStore.addplacelist(mozart);
+    const returnedplacelist = await db.placelistStore.getplacelistById(placelist._id);
+    assertSubset(mozart, placelist);
   });
 
   test("delete One Playist - success", async () => {
-    const id = testPlaylists[0]._id;
-    await db.playlistStore.deletePlaylistById(id);
-    const returnedPlaylists = await db.playlistStore.getAllPlaylists();
-    assert.equal(returnedPlaylists.length, testPlaylists.length - 1);
-    const deletedPlaylist = await db.playlistStore.getPlaylistById(id);
-    assert.isNull(deletedPlaylist);
+    const id = testplacelists[0]._id;
+    await db.placelistStore.deleteplacelistById(id);
+    const returnedplacelists = await db.placelistStore.getAllplacelists();
+    assert.equal(returnedplacelists.length, testplacelists.length - 1);
+    const deletedplacelist = await db.placelistStore.getplacelistById(id);
+    assert.isNull(deletedplacelist);
   });
 
-  test("get a playlist - bad params", async () => {
-    assert.isNull(await db.playlistStore.getPlaylistById(""));
-    assert.isNull(await db.playlistStore.getPlaylistById());
+  test("get a placelist - bad params", async () => {
+    assert.isNull(await db.placelistStore.getplacelistById(""));
+    assert.isNull(await db.placelistStore.getplacelistById());
   });
 
-  test("delete One Playlist - fail", async () => {
-    await db.playlistStore.deletePlaylistById("bad-id");
-    const allPlaylists = await db.playlistStore.getAllPlaylists();
-    assert.equal(testPlaylists.length, allPlaylists.length);
+  test("delete One Placelist - fail", async () => {
+    await db.placelistStore.deleteplacelistById("bad-id");
+    const allplacelists = await db.placelistStore.getAllplacelists();
+    assert.equal(testplacelists.length, allplacelists.length);
   });
 });

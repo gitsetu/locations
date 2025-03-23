@@ -2,8 +2,8 @@ import Mongoose from "mongoose";
 
 const { Schema } = Mongoose;
 
-const playlistSchema = new Schema({
-  title: String,
+const placelistSchema = new Schema({
+  placelistname: String,
   img: String,
   userid: {
     type: Schema.Types.ObjectId,
@@ -11,4 +11,4 @@ const playlistSchema = new Schema({
   },
 });
 
-export const Playlist = Mongoose.model("Playlist", playlistSchema);
+export const Placelist = Mongoose.model("placelist", placelistSchema);
