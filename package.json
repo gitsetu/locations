@@ -4,6 +4,9 @@
   "description": "An application to manage lists of locations for the HDip in Computing, WIT",
   "main": "src/server.js",
   "type": "module",
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js --ignore 'src/models/json/*.json'",
