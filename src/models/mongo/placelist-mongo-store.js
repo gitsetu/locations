@@ -31,6 +31,10 @@ export const placelistMongoStore = {
 
   async deleteplacelistById(id) {
     try {
+      // TODO: Cascade on Mongo DB - DONE!
+      // Delete all locations from list prior to deleting the list
+      await locationMongoStore.deleteAlllocationsFromPlacelist(id)
+      // Delete list
       await Placelist.deleteOne({ _id: id });
     } catch (error) {
       console.log("bad id");

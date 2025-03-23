@@ -39,6 +39,10 @@ export const locationMongoStore = {
     await Location.deleteMany({});
   },
 
+  async deleteAlllocationsFromPlacelist(id) {
+    await Location.deleteMany({ placelistid: id });
+  },
+
   async updatelocation(location, updatedlocation) {
     const locationDoc = await Location.findOne({ _id: location._id})
     locationDoc.locationname = updatedlocation.locationname;
