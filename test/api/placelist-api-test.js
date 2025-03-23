@@ -1,8 +1,8 @@
 import { EventEmitter } from "events";
 import { assert } from "chai";
-import { appService } from "./playtime-service.js";
+import { appService } from "./app-service.js";
 import { assertSubset } from "../test-utils.js";
-import { maggie, maggieCredentials, mozart, testplacelists } from "../fixtures.js";
+import { maggie, maggieCredentials, town, testplacelists } from "../fixtures.js";
 
 EventEmitter.setMaxListeners(25);
 
@@ -17,19 +17,19 @@ suite("Placelist API tests", () => {
     await appService.deleteAllUsers();
     user = await appService.createUser(maggie);
     await appService.authenticate(maggieCredentials);
-    mozart.userid = user._id;
+    town.userid = user._id;
   });
 
   teardown(async () => {});
 
   test("create placelist", async () => {
-    const returnedplacelist = await appService.createplacelist(mozart);
+    const returnedplacelist = await appService.createplacelist(town);
     assert.isNotNull(returnedplacelist);
-    assertSubset(mozart, returnedplacelist);
+    assertSubset(town, returnedplacelist);
   });
 
   test("delete a placelist", async () => {
-    const placelist = await appService.createplacelist(mozart);
+    const placelist = await appService.createplacelist(town);
     const response = await appService.deleteplacelist(placelist._id);
     assert.equal(response.status, 204);
     try {

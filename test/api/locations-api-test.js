@@ -1,11 +1,11 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
-import { appService } from "./playtime-service.js";
-import { maggie, mozart, maggieCredentials, testplacelists, testlocations, concerto } from "../fixtures.js";
+import { appService } from "./app-service.js";
+import { maggie, town, maggieCredentials, testplacelists, testlocations, concerto } from "../fixtures.js";
 
 suite("location API tests", () => {
   let user = null;
-  let beethovenSonatas = null;
+  let citySonatas = null;
 
   setup(async () => {
     appService.clearAuth();
@@ -16,21 +16,21 @@ suite("location API tests", () => {
     await appService.deleteAllUsers();
     user = await appService.createUser(maggie);
     await appService.authenticate(maggieCredentials);
-    mozart.userid = user._id;
-    beethovenSonatas = await appService.createplacelist(mozart);
+    town.userid = user._id;
+    citySonatas = await appService.createplacelist(town);
   });
 
   teardown(async () => {});
 
   test("create location", async () => {
-    const returnedlocation = await appService.createlocation(beethovenSonatas._id, concerto);
+    const returnedlocation = await appService.createlocation(citySonatas._id, concerto);
     assertSubset(concerto, returnedlocation);
   });
 
   test("create Multiple locations", async () => {
     for (let i = 0; i < testlocations.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await appService.createlocation(beethovenSonatas._id, testlocations[i]);
+      await appService.createlocation(citySonatas._id, testlocations[i]);
     }
     const returnedlocations = await appService.getAlllocations();
     assert.equal(returnedlocations.length, testlocations.length);
@@ -44,7 +44,7 @@ suite("location API tests", () => {
   test("Delete locationApi", async () => {
     for (let i = 0; i < testlocations.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await appService.createlocation(beethovenSonatas._id, testlocations[i]);
+      await appService.createlocation(citySonatas._id, testlocations[i]);
     }
     let returnedlocations = await appService.getAlllocations();
     assert.equal(returnedlocations.length, testlocations.length);
@@ -59,9 +59,9 @@ suite("location API tests", () => {
   test("denormalised placelist", async () => {
     for (let i = 0; i < testlocations.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await appService.createlocation(beethovenSonatas._id, testlocations[i]);
+      await appService.createlocation(citySonatas._id, testlocations[i]);
     }
-    const returnedplacelist = await appService.getplacelist(beethovenSonatas._id);
+    const returnedplacelist = await appService.getplacelist(citySonatas._id);
     assert.equal(returnedplacelist.locations.length, testlocations.length);
     for (let i = 0; i < testlocations.length; i += 1) {
       assertSubset(testlocations[i], returnedplacelist.locations[i]);

@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
-import { appService } from "./playtime-service.js";
+import { appService } from "./app-service.js";
 import { maggie, maggieCredentials, testUsers } from "../fixtures.js";
 
 const users = new Array(testUsers.length);

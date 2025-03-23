@@ -40,9 +40,10 @@ export const locationMongoStore = {
   },
 
   async updatelocation(location, updatedlocation) {
-    location.locationname = updatedlocation.locationname;
-    location.latitude = updatedlocation.latitude;
-    location.longitude = updatedlocation.longitude;
-    await location.updateOne();
+    const locationDoc = await Location.findOne({ _id: location._id})
+    locationDoc.locationname = updatedlocation.locationname;
+    locationDoc.latitude = updatedlocation.latitude;
+    locationDoc.longitude = updatedlocation.longitude;
+    await locationDoc.save();
   },
 };
